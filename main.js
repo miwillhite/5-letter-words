@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import {
-  always, append, apply, compose, complement, equals, flip, head, ifElse, inc, indexOf,
-  length, lift, lt, map, range, reduce, reduced, reject, split, sum, tail, take, test
+  always, append, apply, compose, complement, equals, filter, flip, head, ifElse, inc,
+  indexOf, length, lift, lt, map, range, reduce, reduced, reject, split, sum, tail, take, test
 } from 'ramda';
 
 // Get the words list and create an array, rejecting anything with apostrophes
@@ -15,7 +15,7 @@ const words = compose(
 const alphabet = 'abcdefghijklmnopqrstuvwxyz';
 
 // Only take 5-letter words
-const fiveLetterWords = reject(compose(complement(equals)(5), length), words);
+const fiveLetterWords = filter(compose(equals(5), length), words);
 
 // Fn to get the score of the letter
 const alphaScore = compose(inc, flip(indexOf)(alphabet));
