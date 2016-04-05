@@ -30,7 +30,7 @@ const results = reduce((ws, w) => {
     flip(append)(ws),
     // Otherwise pass along the existing set
     always(ws)
-  )(w)
+  )(w);
 }, [], fiveLetterWords);
 
 console.log(results);
